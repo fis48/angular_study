@@ -1,0 +1,39 @@
+
+<form [formGroup]="testForm">
+  <div class="row g-3 align-items-center mb-3">
+    
+    <div class="col-auto">
+      <label for="email">Email</label>
+    </div>
+
+    <div class="col-auto">
+      <input 
+        type="text" 
+        class="form-control"
+        formControlName="email"
+      >
+    </div>
+
+    <div class="col-auto">
+      <span
+        appFormError
+        errMsg="Valid email required."
+        *ngIf="haveFormError('email')"
+      >
+        Required field
+      </span>
+    </div>
+  </div>
+
+  <div class="col-auto">
+    <button class="btn btn-sm btn-secondary">
+      Click
+    </button>
+  </div>
+</form>
+
+<div class="row mt-25">
+  <h2>Form data</h2>
+  <p>Valid: {{ testForm.valid }}</p>
+  <p>Valid: {{ testForm.value | json }}</p>
+</div>
